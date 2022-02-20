@@ -1,7 +1,7 @@
 # ReleaseNotesKit
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/SwapnanilDhol/ReleaseNotesKit/main/rnk-hero.png" width=600 />
+  <img src="https://github.com/SwapnanilDhol/ReleaseNotesKit/blob/main/rnk-hero.png" width=600 />
 </p>
 
 This is ReleaseNotesKit, a brand new, elegant, and extremely simple way to present the recent version’s release notes to your users. `ReleaseNotesKit` uses the iTunesSearchAPI to access information about the app. It has methods for caching data, presenting once on a version change, accessing just the data, and presenting the sheet without any preconditions. 
