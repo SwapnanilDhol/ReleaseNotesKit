@@ -97,17 +97,17 @@ extension ReleaseNotesKit {
     ///  2) When there is no value in the `lastVersionSheetShownFor` key in UserDefaults.
     public func presentReleaseNotesForTheFirstTime() {
         guard let lastVersionSheetShownFor = UserDefaults.standard.string(forKey: "lastVersionSheetShownFor") else {
-            presentWhatsNew(precondition: true, in: UIApplication.topViewController())
+            presentReleaseNotesView(precondition: true, in: UIApplication.topViewController())
             return
         }
         if lastVersionSheetShownFor != Bundle.main.releaseVersionNumber {
-            presentWhatsNew(precondition: true, in: UIApplication.topViewController())
+            presentReleaseNotesView(precondition: true, in: UIApplication.topViewController())
         }
     }
 
     /// Presents ReleaseNotesView without any preconditions.
     /// - Parameter controller: The controller on which the sheet should be presented. If none is provided, it uses the top view controller.
-    public func presentWhatsNew(precondition: Bool = false, in controller: UIViewController?) {
+    public func presentReleaseNotesView(precondition: Bool = false, in controller: UIViewController?) {
         parseCacheOrFetchNewData(precondition: precondition) { result in
             switch result {
             case .success(let lookup):
