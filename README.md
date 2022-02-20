@@ -1,5 +1,5 @@
 # ReleaseNotesKit
-This is ReleaseNotesKit, a brand new, elegant, and extremely simple way to present the recent version’s release notes to your users. `ReleaseNotesKit ` uses the iTunesSearchAPI  to access information about the app. It has methods for caching data, presenting once on a version change, accessing just the data, and presenting the sheet without any preconditions. 
+This is ReleaseNotesKit, a brand new, elegant, and extremely simple way to present the recent version’s release notes to your users. `ReleaseNotesKit` uses the iTunesSearchAPI to access information about the app. It has methods for caching data, presenting once on a version change, accessing just the data, and presenting the sheet without any preconditions. 
 
 ## Configuration
 `ReleaseNotesKit` can be initialised using:
@@ -34,17 +34,17 @@ Let’s quickly go over each of these cases and what they mean so that it’ll b
 `ReleaseNotesKit` can present the `ReleaseNotesView	` when the version changes. To present the sheet once per version update, you can call `presentReleaseNotesForTheFirstTime`. There’s two checks that happen in this method: 
 
 ```swift
-        guard let lastVersionSheetShownFor = UserDefaults.standard.string(forKey: "lastVersionSheetShownFor") else {
-            presentReleaseNotesView(precondition: true, in: UIApplication.topViewController())
-            return
-        }
+guard let lastVersionSheetShownFor = UserDefaults.standard.string(forKey: "lastVersionSheetShownFor") else {
+    presentReleaseNotesView(precondition: true, in: UIApplication.topViewController())
+    return
+}
 ```
 In this first case, we check if the UserDefaults string for `lastVersionSheetShownFor` is nil which can happen when the user has installed the app for the first time.
 
 ```swift
-        if lastVersionSheetShownFor != Bundle.main.releaseVersionNumber {
-            presentReleaseNotesView(precondition: true, in: UIApplication.topViewController())
-        }
+if lastVersionSheetShownFor != Bundle.main.releaseVersionNumber {
+    presentReleaseNotesView(precondition: true, in: UIApplication.topViewController())
+}
 ```
 In this final check, we check if the sheet was last presented for a different version but now a new version is available from the API. 
 
