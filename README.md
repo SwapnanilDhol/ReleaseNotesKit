@@ -2,19 +2,19 @@
 This is ReleaseNotesKit, a brand new, elegant, and extremely simple way to present the recent version’s release notes to your users. `ReleaseNotesKit` uses the iTunesSearchAPI to access information about the app. It has methods for caching data, presenting once on a version change, accessing just the data, and presenting the sheet without any preconditions. 
 
 ## Configuration
-`ReleaseNotesKit` can be initialised using:
+`ReleaseNotesKit` can be initialized using:
 
 ```swift
 ReleaseNotesKit.shared.setApp(with: "1548193451") //Replace with your app's ID
 ```
 
 ## Usage
-> Note: Before accessing any of `ReleaseNotesKit`’s methods, you have to initialise the shared instance with the app ID. Failure to do this will throw an assertion failure during DEBUG and will do nothing during PROD.
+> Note: Before accessing any of `ReleaseNotesKit`’s methods, you have to initialize the shared instance with the app ID. Failure to do this will throw an assertion failure during DEBUG and will do nothing during PROD.
 
-`ReleaseNotesKit` can provide you both the data in a Swift Struct and also present a sheet with the data in a styled format. 
+`ReleaseNotesKit` can provide you both the data in a Swift Struct and also present a sheet with the data in a pre-styled format. 
 
 ### Just the data 
-To access just the data call `parseCacheOrFetchNewData`. This method has a default parameter `precondition`that is set to `false` by default. For simply accessing the data, precondition can remain false. This check is useful for our subsequent usage types. The completion results a Swift `Result` type with `ITunesLookupResult` for the success case and `ReleaseNotesError` in case of failure. `ReleaseNotesError` is defined in the following way:
+To access just the data call `parseCacheOrFetchNewData`. This method has a default parameter `precondition` that is set to `false` by default. For simply accessing the data, precondition can remain false. This check is useful for our subsequent usage types. The completion returns a Swift `Result` type with `ITunesLookupResult` for the success case and `ReleaseNotesError` in case of failure. `ReleaseNotesError` is defined in the following way:
 ```swift
 enum ReleaseNotesError: String, Error {
     case malformedURL
