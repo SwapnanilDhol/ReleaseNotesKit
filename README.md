@@ -7,6 +7,7 @@ This is ReleaseNotesKit, a brand new, elegant, and extremely simple way to prese
 ```swift
 ReleaseNotesKit.shared.setApp(with: "1548193451") //Replace with your app's ID
 ```
+Ideally, you'd like to set this once per app launch. Therefore, a good place to set this code would be in your App's `AppDelegate` file.
 
 ## Usage
 > Note: Before accessing any of `ReleaseNotesKit`’s methods, you have to initialize the shared instance with the app ID. Failure to do this will throw an assertion failure during DEBUG and will do nothing during PROD.
@@ -69,7 +70,7 @@ For issue fixes: #IssueNumber NameOfFile: ChangesMade
 ## License
 This project is licensed under the MIT License - see the  [LICENSE](https://github.com/SwapnanilDhol/ReleaseNotesKit/blob/main/Resources/LICENSE.md)  file for details
 
-## Apps using IGStoryKit 
+## Apps using ReleaseNotesKit
 * [Neon: Color Picker & Social](https://apps.apple.com/us/app/neon-real-time-color-picker/id1480273650?ls=1)
 * [Sticker Card](https://apps.apple.com/us/app/sticker-cards/id1522226018)
 
