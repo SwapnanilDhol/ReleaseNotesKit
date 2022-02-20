@@ -19,12 +19,12 @@ To access just the data call `parseCacheOrFetchNewData`. This method has a defau
 
 ```swift
 ReleaseNotesKit.shared.parseCacheOrFetchNewData { result in
-            switch result {
-            case .success(let response):
-                print(response.releaseNotes)
-            case .failure(let error):
-                print(error.rawValue)
-            }
+    switch result {
+    case .success(let response):
+        print(response.releaseNotes)
+    case .failure(let error):
+        print(error.rawValue)
+    }
 }
 ```
 
