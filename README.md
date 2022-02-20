@@ -15,7 +15,20 @@ Ideally, you'd like to set this once per app launch. Therefore, a good place to 
 `ReleaseNotesKit` can provide you both the data in a Swift Struct and also present a sheet with the data in a pre-styled format. 
 
 ### Just the data 
-To access just the data call `parseCacheOrFetchNewData`. This method has a default parameter `precondition` that is set to `false` by default. For simply accessing the data, precondition can remain false. This check is useful for our subsequent usage types. The completion returns a Swift `Result` type with `ITunesLookupResult` for the success case and `ReleaseNotesError` in case of failure. `ReleaseNotesError` is defined in the following way:
+To access just the data call `parseCacheOrFetchNewData`. This method has a default parameter `precondition` that is set to `false` by default. For simply accessing the data, precondition can remain false. This check is useful for our subsequent usage types.
+
+```swift
+ReleaseNotesKit.shared.parseCacheOrFetchNewData { result in
+            switch result {
+            case .success(let response):
+                print(response.releaseNotes)
+            case .failure(let error):
+                print(error.rawValue)
+            }
+}
+```
+
+The completion returns a Swift `Result` type with `ITunesLookupResult` for the success case and `ReleaseNotesError` in case of failure. `ReleaseNotesError` is defined in the following way:
 ```swift
 enum ReleaseNotesError: String, Error {
     case malformedURL
@@ -32,7 +45,11 @@ Let’s quickly go over each of these cases and what they mean so that it’ll b
 * `noResults`: There was no available results returned for this particular appID. Please check if the appID is correct or if the app is brand new, please wait for a few hours for AppStore to index your app.
 
 ### Presenting the ReleaseNotesView for the first time
-`ReleaseNotesKit` can present the `ReleaseNotesView	` when the version changes. To present the sheet once per version update, you can call `presentReleaseNotesForTheFirstTime`. There’s two checks that happen in this method: 
+`ReleaseNotesKit` can present the `ReleaseNotesView	` when the version changes. To present the sheet once per version update, you can call `presentReleaseNotesForTheFirstTime`. 
+```swift
+ReleaseNotesKit.shared.presentReleaseNotesForTheFirstTime()
+```
+There’s two checks that happen in this method: 
 
 ```swift
 guard let lastVersionSheetShownFor = UserDefaults.standard.string(forKey: "lastVersionSheetShownFor") else {
@@ -51,6 +68,14 @@ In this final check, we check if the sheet was last presented for a different ve
 
 ### Presenting `ReleaseNotesView` without Preconditions
 It is possible to present the `ReleaseNotesView` without any version check preconditions. To call this, simply call `presentReleaseNotesView`. You may choose to pass a `controller: UIViewController` or let it be nil and the framework will access the UIApplication’s top view controller and present the `ReleaseNotesView` on that top controller. 
+
+```swift
+ReleaseNotesKit.shared.presentReleaseNotesView(in: self)
+```
+Or, without the controller to present.
+```swift
+ReleaseNotesKit.shared.presentReleaseNotesView()
+```
 
 ## Testing
 There has been some manual testing done by myself. However, I am looking for contributions that will add a good testing suite. If you’re willing, please feel free to open a PR!
