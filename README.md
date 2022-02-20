@@ -51,30 +51,26 @@ In this final check, we check if the sheet was last presented for a different ve
 ### Presenting `ReleaseNotesView` without Preconditions
 It is possible to present the `ReleaseNotesView` without any version check preconditions. To call this, simply call `presentReleaseNotesView`. You may choose to pass a `controller: UIViewController` or let it be nil and the framework will access the UIApplication’s top view controller and present the `ReleaseNotesView` on that top controller. 
 
-
 ## Testing
 There has been some manual testing done by myself. However, I am looking for contributions that will add a good testing suite. If you’re willing, please feel free to open a PR!
 
+## Like the framework?
+If you like `ReleaseNotesKit` please consider buying me a coffee 🥰
+
+<a href="https://www.buymeacoffee.com/swapnanildhol"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=swapnanildhol&button_colour=5F7FFF&font_colour=ffffff&font_family=Cookie&outline_colour=000000&coffee_colour=FFDD00"></a>
+
 ## Contribution
-Please feel free to contribute any fixes, or changes that you’d like to see in this framework! If you’re using this framework in your project, and would like to contribute monetarily to its development, you can [Buy Me a Coffee](http://buymeacoffee.com/swapnanildhol) but you totally don’t have to. 
+Contributions are always welcome. Please follow the following convention if you’re contributing:
+
+NameOfFile: Changes Made
+One commit per feature
+For issue fixes: #IssueNumber NameOfFile: ChangesMade
 
 ## License
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the “Software”), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+This project is licensed under the MIT License - see the  [LICENSE](https://github.com/SwapnanilDhol/ReleaseNotesKit/blob/main/Resources/LICENSE.md)  file for details
 
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
+## Apps using IGStoryKit 
+* [Neon: Color Picker & Social](https://apps.apple.com/us/app/neon-real-time-color-picker/id1480273650?ls=1)
+* [Sticker Card](https://apps.apple.com/us/app/sticker-cards/id1522226018)
 
-```
-THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-```
+If you’re using `ReleaseNotesKit` in your app please open a PR to edit this Readme. I’ll be happy to include you in this list :D 
