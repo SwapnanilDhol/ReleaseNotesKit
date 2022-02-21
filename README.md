@@ -52,24 +52,20 @@ Let’s quickly go over each of these cases and what they mean so that it’ll b
 ### Presenting the ReleaseNotesView for the first time
 `ReleaseNotesKit` can present the `ReleaseNotesView	` when the version changes. To present the sheet once per version update, you can call `presentReleaseNotesForTheFirstTime`. 
 ```swift
-ReleaseNotesKit.shared.presentReleaseNotesForTheFirstTime()
+ReleaseNotesKit.shared.presentReleaseNotesViewOnVersionChange()
 ```
 There’s two checks that happen in this method: 
 
 ```swift
-guard let lastVersionSheetShownFor = UserDefaults.standard.string(forKey: "lastVersionSheetShownFor") else {
-    presentReleaseNotesView(precondition: true, in: UIApplication.topViewController())
-    return
-}
+guard let lastVersionSheetShownFor = UserDefaults.standard.string(forKey: "lastVersionSheetShownFor") else { ... }
 ```
 In this first case, we check if the UserDefaults string for `lastVersionSheetShownFor` is nil which can happen when the user has installed the app for the first time.
 
 ```swift
-if lastVersionSheetShownFor != Bundle.main.releaseVersionNumber {
-    presentReleaseNotesView(precondition: true, in: UIApplication.topViewController())
-}
+result.currentVersion != Bundle.main.releaseVersionNumber || String(result.appID ?? 0) != self.appID
 ```
-In this final check, we check if the sheet was last presented for a different version but now a new version is available from the API. 
+* Current version stored in the cached response != The installed app's version
+* The cached lookup's appID is different than the set app ID.
 
 ### Presenting `ReleaseNotesView` without Preconditions
 It is possible to present the `ReleaseNotesView` without any version check preconditions. To call this, simply call `presentReleaseNotesView`. You may choose to pass a `controller: UIViewController` or let it be nil and the framework will access the UIApplication’s top view controller and present the `ReleaseNotesView` on that top controller. 
