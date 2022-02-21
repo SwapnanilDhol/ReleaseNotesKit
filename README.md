@@ -50,7 +50,7 @@ Let’s quickly go over each of these cases and what they mean so that it’ll b
 * `noResults`: There was no available results returned for this particular appID. Please check if the appID is correct or if the app is brand new, please wait for a few hours for AppStore to index your app.
 
 ### Presenting the ReleaseNotesView for the first time
-`ReleaseNotesKit` can present the `ReleaseNotesView	` when the version changes. To present the sheet once per version update, you can call `presentReleaseNotesForTheFirstTime`. 
+`ReleaseNotesKit` can present the `ReleaseNotesView	` when the version changes. To present the sheet once per version update, you can call `presentReleaseNotesViewOnVersionChange`. 
 ```swift
 ReleaseNotesKit.shared.presentReleaseNotesViewOnVersionChange()
 ```
