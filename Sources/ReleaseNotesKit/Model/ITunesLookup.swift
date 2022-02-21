@@ -1,9 +1,11 @@
-//
-//  ITunesLookup.swift
-//  
-//
-//  Created by Swapnanil Dhol on 20/02/22.
-//
+/*****************************************************************************
+ * ITunesLookup.swift
+ * ReleaseNotesKit
+ *****************************************************************************
+ * Authors: Swapnanil Dhol <swapnanildhol # gmail.com>
+ *
+ * Refer to the COPYING file of the official project for license.
+ *****************************************************************************/
 
 import Foundation
 
@@ -13,6 +15,7 @@ public struct ITunesLookup: Codable {
 }
 
 public struct ITunesLookupResult: Codable {
+    public let appID: Int?
     public let appIconURL: String?
     public let appName: String?
     public let appURL: String?
@@ -24,6 +27,7 @@ public struct ITunesLookupResult: Codable {
     public let releaseNotes: String?
 
     enum CodingKeys: String, CodingKey {
+        case appID = "artistId"
         case appIconURL = "artworkUrl60"
         case appName = "trackCensoredName"
         case appURL = "artistViewUrl"
@@ -35,4 +39,3 @@ public struct ITunesLookupResult: Codable {
         case releaseNotes
     }
 }
-
